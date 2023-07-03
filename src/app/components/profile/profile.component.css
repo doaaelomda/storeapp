@@ -1,0 +1,17 @@
+.media{
+    background-color: #eee;
+    margin: 15px;
+}
+.media-body{
+    margin: 10px;
+}
+.label {
+    color: rgb(17, 136, 145);
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  h5, p {
+    color: black;
+    font-family: Arial, sans-serif;
+  }

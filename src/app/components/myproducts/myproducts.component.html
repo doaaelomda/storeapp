@@ -1,0 +1,58 @@
+<div class="container">
+    <h4 style="text-align:center">My Producats </h4>
+    <div class="body">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="float: right;">Add Producats</button>
+        <br><br>
+        <div class="row">
+          <div class="col-md-12">
+            <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+            <div class="card-deck">
+              <div class="col col-12 col-md-6 col-lg-3 mb-4" *ngFor="let item of dataArray">
+                <div class="card h-100">
+                  <img class="card-img-top" src="{{ item.img }}" alt="{{ item.title }}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p class="card-text">{{ item.dis }}</p>
+                  </div>
+                   <div class="card-footer">
+                     <button type="submit" class="btn btn-danger w-100" (click)="deleteitem(item.id)">Delete</button>
+                    
+                     </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #fo="ngForm" (ngSubmit)="addproducat(fo)">
+          <div class="row">
+            <div >
+              <input type="text" class="form-control" placeholder="Title:" name="title" #title="ngModel" ngModel>
+            </div>
+            <br><br>
+            <div>
+              <textarea class="form-control" col="30" rows="10" placeholder="Description:"  name="dis" #dis="ngModel" ngModel></textarea>
+            </div>
+            <br><br>
+            <div >
+              <input type="text" class="form-control" placeholder="Image:" name="img"  #img="ngModel" ngModel>
+            </div>
+          </div>
+          <div class="alert alert-success" *ngIf="successMessage">{{successMessage}}</div>
+          <br>
+          <button class="btn btn-success">Add Product</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

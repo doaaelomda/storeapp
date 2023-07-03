@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="media mt-10">
+    <div class="media-body">
+      <h5 >
+        <span class="label">Name :</span> {{dataprofile.fname}}
+      </h5>
+      <br>
+      <h5>
+        <span class="label">Information :</span> {{dataprofile.textarea}}
+      </h5> 
+      <br>
+      <h5>
+        <span class="label">Email :</span> {{dataprofile.email}}
+      </h5> 
+      <br>
+      <h5>
+        <span class="label">Password :</span> {{dataprofile.pass}}
+      </h5> 
+      <br>
+          <button class="btn btn-danger m-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Update Your Information</button>
+          <button class="btn btn-danger m-3" data-bs-toggle="modal" data-bs-target="#exampleModale">Update Image</button>
+    </div>
+    <img [src]="dataprofile.img" class="ml-3 m-5" alt="..." style="height: auto; width: 170px;">
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          Name:<input type="text" class="form-control" name="fname" [(ngModel)]="dataprofile.fname">
+          <br>
+          Bio:<input type="text" class="form-control" name="textarea" [(ngModel)]="dataprofile.textarea">
+          <br>
+          <div class="alert alert-danger" *ngIf="successupdate">{{successupdate}}</div>
+          <br>
+          <button type="submit" class="btn btn-info" (click)="update()">Update Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="file" accept=".jpg,.png,.zip" name="file" (change)="uploadImage($event)">
+          <div *ngIf="persangtask | async as pct">
+            <div *ngIf="pct == 100"  class="alert alert-success">Upload Successfully</div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" [style.width.%]="pct" [attr.aria-valuenow]="pct" aria-valuemin="0" aria-valuemax="100">
+                {{pct}}%
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
