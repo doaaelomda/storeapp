@@ -13,7 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProductsComponent } from './components/products/products.component';
 import { MyproductsComponent } from './components/myproducts/myproducts.component';
-import { environment } from './environment/environment.pro';
+import { environment } from '../environment/environment.pro';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ProducatdetailsComponent } from './components/producatdetails/producatdetails.component';
 import { HttpClientModule } from '@angular/common/http';

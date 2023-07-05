@@ -50,7 +50,7 @@ export class MyproductsComponent implements OnInit,OnDestroy {
   }
   deleteitem(id: any) {
     this.fs.collection("producats").doc(id).delete().then(() => {
-      this.successMessage = 'Deleted successfully';
+      this.successupdate = 'Deleted successfully';
       // window.location.reload();
     }).catch((error: any) => {
       alert(error);
